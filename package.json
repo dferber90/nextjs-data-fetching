@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mikemcbride/dad-jokes": "1.0.0",
     "next": "9.4.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
