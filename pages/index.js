@@ -1,13 +1,13 @@
 import * as React from "react";
 import Head from "next/head";
+import { getJoke } from "./api/joke";
 
 const url = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : `http://localhost:3000`;
 
 export async function getServerSideProps() {
-  const res = await fetch(`${url}/api/joke`);
-  const joke = await res.json();
+  const joke = getJoke();
 
   return { props: { initialJoke: joke.text } };
 }
