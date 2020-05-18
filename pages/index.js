@@ -2,10 +2,6 @@ import * as React from "react";
 import Head from "next/head";
 import { getJoke } from "./api/joke";
 
-const url = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : `http://localhost:3000`;
-
 export async function getServerSideProps() {
   const joke = getJoke();
 
@@ -16,7 +12,7 @@ export default function Home(props) {
   const [joke, setJoke] = React.useState(props.initialJoke);
 
   async function refresh() {
-    const res = await fetch(`${url}/api/joke`);
+    const res = await fetch(`/api/joke`);
     const body = await res.json();
     setJoke(body.text);
   }
